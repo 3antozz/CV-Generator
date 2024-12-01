@@ -1,25 +1,26 @@
 import '../styles/Education.css'
-import { useState } from 'react';
 
-function Education () {
+function Education ({values}) {
     return (
         <div className='education'>
             <h2>Education</h2>
-            <Major />
-            <Major />
+            <ul>
+                {values.map((item) => <Major key={item.id} item={item} />)}
+            </ul>
         </div>
     )
 }
 
 
 
-function Major () {
+function Major ({item}) {
     return (
-        <div>
-            <h3>Enter your Major</h3>
-            <p>Name of your institution</p>
-            <p>Date</p>
-        </div>
+        <li>
+            <h3>{item.major}</h3>
+            <p>{item.institution}</p>
+            <p>{item.startDate}</p>
+            <p>{item.endDate}</p>
+        </li>
     )
 }
 

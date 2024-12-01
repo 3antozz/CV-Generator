@@ -1,6 +1,9 @@
 .picture {
-    border: 1px solid black;
-    height: 200px;
+    border: 2px solid black;
+    border-radius: 50%;
+    width: 200px;
+    aspect-ratio: 1/1;
     align-content: center;
     text-align: center;
+    margin: auto;
 }

@@ -1,9 +1,9 @@
-.container {
+.resume {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   gap: 1rem;
   margin: auto;
-  width: 794px;
+  max-width: 794px;
   height: 1123px;
   background-color: beige;
 }
@@ -15,4 +15,11 @@
 
 .left, .right {
   padding: 1.5rem;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 794px;
+  gap: 3rem;
+  padding: 2rem 5rem;
 }
