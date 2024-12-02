@@ -1,23 +1,23 @@
 import '../../styles/Skills.css'
-import { useState } from 'react';
 
-function Skills () {
+function Skills ({values}) {
     return (
         <div className='education'>
-            <h2>Skills</h2>
-            <Skill />
-            <Skill />
+            <h2>Skills Summary</h2>
+            <ul>
+                {values.map((item) => <Skill key={item.id} item={item}/>)}
+            </ul>
         </div>
     )
 }
 
 
 
-function Skill () {
+function Skill ({item}) {
     return (
-        <div>
-            <h3>Enter your Skill</h3>
-        </div>
+        <li>
+            <h3>{item.name}</h3>
+        </li>
     )
 }
 

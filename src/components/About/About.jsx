@@ -5,7 +5,7 @@ function About ({values}) {
         <div className='about'>
             <h1>{values.fullName}</h1>
             <h2>{values.profession}</h2>
-            <h3>About Me</h3>
+            <h3>Profile</h3>
             <p>{values.description}</p>
         </div>
     )

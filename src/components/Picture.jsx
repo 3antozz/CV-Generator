@@ -1,5 +1,4 @@
 import '../styles/Picture.css'
-import { useState } from 'react';
 
 function Picture () {
     return (

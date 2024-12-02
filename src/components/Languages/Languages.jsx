@@ -1,24 +1,24 @@
 import '../../styles/Languages.css'
-import { useState } from 'react';
 
-function Languages () {
+function Languages ({values}) {
     return (
-        <div className='education'>
+        <div className='languages'>
             <h2>Languages</h2>
-            <Language />
-            <Language />
+            <ul>
+                {values.map((item) => <Language key={item.id} item={item}/>)}
+            </ul>
         </div>
     )
 }
 
 
 
-function Language () {
+function Language ({item}) {
     return (
-        <div>
-            <h3>Language</h3>
-            <h3>Level</h3>
-        </div>
+        <li>
+            <h3>{item.name}</h3>
+            <p>({item.level})</p>
+        </li>
     )
 }
 

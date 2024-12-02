@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./App.css";
+import "./Resume.css";
 import './styles/Forms.css'
 import About from "./components/About/About";
 import AboutForm from "./components/About/About-Form";
@@ -11,7 +11,9 @@ import EducationForm from "./components/Education/Education-Form";
 import Work from "./components/Work/Work";
 import WorkForm from "./components/Work/Work-Form";
 import Skills from "./components/Skills/Skills";
+import SkillsForm from "./components/Skills/Skills-Form";
 import Languages from "./components/Languages/Languages";
+import LanguagesForm from "./components/Languages/Languages-Form";
 
 function App() {
   const [about, setAbout] = useState({
@@ -85,6 +87,91 @@ function App() {
     }
   ])
 
+  const [skillsOpen, setSkillsOpen] = useState(false)
+  const [skills, setSkills] = useState([
+    {
+      id: crypto.randomUUID(),
+      name: 'Skill'
+    },
+    {
+      id: crypto.randomUUID(),
+      name: 'Skill'
+    },
+    {
+      id: crypto.randomUUID(),
+      name: 'Skill'
+    }
+  ])
+
+  const [languagesOpen, setLanguagesOpen] = useState(false)
+  const [languages, setLanguages] = useState([
+    {
+      id: crypto.randomUUID(),
+      name: 'French',
+      level: 'Good'
+    },
+    {
+      id: crypto.randomUUID(),
+      name: 'French',
+      level: 'Good'
+    },
+    {
+      id: crypto.randomUUID(),
+      name: 'French',
+      level: 'Good'
+    }
+  ])
+
+  function languagesHandler (event, elementId, obj) {
+    event.preventDefault();
+    setLanguages((prev) => prev.map((item) => item.id === elementId ? {...item, ...obj} : item))
+  }
+
+  function languagesButton () {
+    setLanguagesOpen(!skillsOpen);
+  }
+
+  function addLanguagesObj(event) {
+    event.preventDefault();
+    const obj = {
+      isOpen: false,
+      id: crypto.randomUUID(),
+      name: 'Language'
+    }
+    setLanguages((prev) => [...prev, obj])
+  }
+
+  function deleteLanguagesObj(event, elementId) {
+    event.preventDefault();
+    setLanguages((prev) => prev.filter((element) => element.id !== elementId))
+  }
+
+  function skillsHandler (event, elementId, obj) {
+    event.preventDefault();
+    setSkills((prev) => prev.map((item) => item.id === elementId ? {...item, ...obj} : item))
+  }
+
+  function skillsButton () {
+    setSkillsOpen(!skillsOpen);
+  }
+
+  function addSkillsObj(event) {
+    event.preventDefault();
+    const obj = {
+      isOpen: false,
+      id: crypto.randomUUID(),
+      name: 'Skill'
+    }
+    setSkills((prev) => [...prev, obj])
+  }
+
+  function deleteSkillsObj(event, elementId) {
+    event.preventDefault();
+    setSkills((prev) => prev.filter((element) => element.id !== elementId))
+  }
+
+
+
   function educationButton () {
     setEducationOpen(!educationOpen);
   }
@@ -156,13 +243,15 @@ function App() {
         <ContactForm contactValues={contact} contactChange={contactHandler} />
         <EducationForm educationValues={education} educationOpen={educationOpen} setEducation={educationButton} educationChange={educationHandler} addEducation={addEducationObj} removeEducation={deleteEducationObj}/>
         <WorkForm workValues={work} workOpen={workOpen} setWork={workButton} workChange={workHandler} addWork={addWorkObj} removeWork={deleteWorkObj} />
+        <SkillsForm skillsValues={skills} skillsOpen={skillsOpen} setSkills={skillsButton} skillsChange={skillsHandler} addSkills={addSkillsObj} removeSkills={deleteSkillsObj} />
+        <LanguagesForm languagesValues={languages} languagesOpen={languagesOpen} setLanguages={languagesButton} languagesChange={languagesHandler} addLanguages={addLanguagesObj} removeLanguages={deleteLanguagesObj}/>
       </div>
       <div className="resume">
         <div className="left">
           <Picture />
           <Contact values={contact} />
-          <Skills />
-          <Languages />
+          <Skills values={skills} />
+          <Languages values={languages} />
         </div>
         <div className="right">
           <About values={about}/>

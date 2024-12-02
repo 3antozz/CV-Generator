@@ -2,7 +2,7 @@ export default function AboutForm ({aboutValues, aboutChange}) {
     return (
         <form className='form-about' action="">
             <div>
-                <h1>About Me</h1>
+                <h1>Profile</h1>
                 <button className='open' onClick={(event) => aboutChange(event, {isOpen: !aboutValues.isOpen})}>{aboutValues.isOpen ? 'Submit' : 'Edit'}</button>
             </div>
             {aboutValues.isOpen &&  

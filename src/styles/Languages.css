@@ -1,1 +1,8 @@
+.languages li {
+    display: flex;
+    gap: 1rem;
+}
 
+.languages li h3 {
+    line-height: normal;
+}

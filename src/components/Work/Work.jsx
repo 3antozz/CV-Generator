@@ -19,11 +19,11 @@ function convertDateToYear (date) {
 
 function Job ({item}) {
     return (
-        <div>
+        <li>
             <h3>{item.job}</h3>
             <p>{item.company}</p>
             <p>({convertDateToYear(item.startDate)} - {convertDateToYear(item.endDate)})</p>
-        </div>
+        </li>
     )
 }
 
