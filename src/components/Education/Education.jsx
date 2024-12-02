@@ -1,4 +1,4 @@
-import '../styles/Education.css'
+import '../../styles/Education.css'
 
 function Education ({values}) {
     return (

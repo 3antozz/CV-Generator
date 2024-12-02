@@ -1,4 +1,4 @@
-import '../styles/Contact.css'
+import '../../styles/Contact.css'
 
 function Contact ({values}) {
     return (
@@ -11,6 +11,10 @@ function Contact ({values}) {
             <div className='email'>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>email-outline</title><path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6M20 6L12 11L4 6H20M20 18H4V8L12 13L20 8V18Z" /></svg>
                 <p>{values.email}</p>
+            </div>
+            <div className='address'>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>map-marker-outline</title><path d="M12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5M12,2A7,7 0 0,1 19,9C19,14.25 12,22 12,22C12,22 5,14.25 5,9A7,7 0 0,1 12,2M12,4A5,5 0 0,0 7,9C7,10 7,12 12,18.71C17,12 17,10 17,9A5,5 0 0,0 12,4Z" /></svg>
+                <p>{values.address}</p>
             </div>
             <div className='linkedin'>
                 <svg viewBox="0 0 128 128">

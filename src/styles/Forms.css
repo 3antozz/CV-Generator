@@ -42,7 +42,7 @@ label {
     font-weight: bold;
 }
 
-.open {
+.open, .add, .delete {
     font-weight: 600;
     align-self: center;
     padding: 0.3rem 1.2rem;

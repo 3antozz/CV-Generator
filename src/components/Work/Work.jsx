@@ -1,4 +1,4 @@
-import '../styles/Work.css'
+import '../../styles/Work.css'
 
 function Work ({values}) {
     return (

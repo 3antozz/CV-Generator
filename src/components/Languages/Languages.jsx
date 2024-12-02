@@ -1,4 +1,4 @@
-import '../styles/Languages.css'
+import '../../styles/Languages.css'
 import { useState } from 'react';
 
 function Languages () {

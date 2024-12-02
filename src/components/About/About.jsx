@@ -1,5 +1,4 @@
-import '../styles/About.css'
-import { useState } from 'react';
+import '../../styles/About.css'
 
 function About ({values}) {
     return (
