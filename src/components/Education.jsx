@@ -11,6 +11,10 @@ function Education ({values}) {
     )
 }
 
+function convertDateToYear (date) {
+    return new Date(date).getFullYear();
+}
+
 
 
 function Major ({item}) {
@@ -18,8 +22,7 @@ function Major ({item}) {
         <li>
             <h3>{item.major}</h3>
             <p>{item.institution}</p>
-            <p>{item.startDate}</p>
-            <p>{item.endDate}</p>
+            <p>({convertDateToYear(item.startDate)} - {convertDateToYear(item.endDate)})</p>
         </li>
     )
 }

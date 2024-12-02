@@ -27,25 +27,56 @@ function App() {
 
   const [education, setEducation] = useState([
     {
+      isOpen: false,
       id: crypto.randomUUID(),
       major: 'architecture',
       institution: 'epau',
-      startDate: '2001/05/22',
-      endDate: '1999/12/15'
+      startDate: '2001-05',
+      endDate: '1999-12'
     },
     {
+      isOpen: false,
       id: crypto.randomUUID(),
       major: 'architecture',
       institution: 'epau',
-      startDate: '2001/05/22',
-      endDate: '1999/12/15'
+      startDate: '2001-05',
+      endDate: '1999-12'
     },
     {
+      isOpen: false,
       id: crypto.randomUUID(),
       major: 'web dev',
       institution: 'epau',
-      startDate: '2001/05/22',
-      endDate: '1999/12/15'
+      startDate: '2001-05',
+      endDate: '1999-12'
+    }
+  ])
+
+  const [workOpen, setWorkOpen] = useState(false)
+  const [work, setWork] = useState([
+    {
+      isOpen: false,
+      id: crypto.randomUUID(),
+      company: 'google',
+      job: 'pdg',
+      startDate: '2001-05',
+      endDate: '1999-12'
+    },
+    {
+      isOpen: false,
+      id: crypto.randomUUID(),
+      company: 'google',
+      job: 'pdg',
+      startDate: '2001-05',
+      endDate: '1999-12'
+    },
+    {
+      isOpen: false,
+      id: crypto.randomUUID(),
+      company: 'google',
+      job: 'pdg',
+      startDate: '2001-05',
+      endDate: '1999-12'
     }
   ])
 
@@ -54,11 +85,17 @@ function App() {
   }
 
   function educationHandler (event, elementId, obj) {
-    console.log(elementId);
-    console.log(obj);
-    console.log(education);
     event.preventDefault();
     setEducation(education.map((item) => item.id === elementId ? {...item, ...obj} : item))
+  }
+
+  function workButton () {
+    setWorkOpen(!workOpen);
+  }
+
+  function workHandler (event, elementId, obj) {
+    event.preventDefault();
+    setWork(work.map((item) => item.id === elementId ? {...item, ...obj} : item))
   }
 
   function contactHandler (event, obj) {
@@ -73,7 +110,7 @@ function App() {
   }
   return (
     <div className="container">
-      <Forms aboutValues={about} aboutChange={aboutHandler} contactValues={contact} contactChange={contactHandler} educationValues={education} educationOpen={educationOpen} setEducation={educationButton} educationChange={educationHandler} />
+      <Forms aboutValues={about} aboutChange={aboutHandler} contactValues={contact} contactChange={contactHandler} educationValues={education} educationOpen={educationOpen} setEducation={educationButton} educationChange={educationHandler} workValues={work} workOpen={workOpen} setWork={workButton} workChange={workHandler} />
       <div className="resume">
         <div className="left">
           <Picture />
@@ -84,7 +121,7 @@ function App() {
         <div className="right">
           <About values={about}/>
           <Education values={education}/>
-          <Work />
+          <Work values={work} />
         </div>
       </div>
     </div>

@@ -1,24 +1,28 @@
 import '../styles/Work.css'
-import { useState } from 'react';
 
-function Work () {
+function Work ({values}) {
     return (
         <div className='work'>
             <h2>Work Experience</h2>
-            <Job />
-            <Job />
+            <ul>
+                {values.map((item) => <Job key={item.id} item={item} />)}
+            </ul>
         </div>
     )
 }
 
+function convertDateToYear (date) {
+    return new Date(date).getFullYear();
+}
 
 
-function Job () {
+
+function Job ({item}) {
     return (
         <div>
-            <h3>Company name here</h3>
-            <h4>Job Position</h4>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur natus enim doloremque impedit velit officia, non laborum provident sit esse vero suscipit dolores error voluptatibus maiores, dolore minima distinctio dolorem?</p>
+            <h3>{item.job}</h3>
+            <p>{item.company}</p>
+            <p>({convertDateToYear(item.startDate)} - {convertDateToYear(item.endDate)})</p>
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import '../styles/Forms.css'
 
-function Forms ({aboutValues, aboutChange, contactValues, contactChange, educationValues, educationChange, educationOpen, setEducation}) {
+function Forms ({aboutValues, aboutChange, contactValues, contactChange, educationValues, educationChange, educationOpen, setEducation, workValues, workOpen, setWork, workChange}) {
     return (
         <div className="forms">
             <form className='form-about' action="">
@@ -45,24 +45,40 @@ function Forms ({aboutValues, aboutChange, contactValues, contactChange, educati
                     </div>          
                 </>}
             </form>
-            <form className='form-education' action="">
+            <div className='form-education form' action="">
                 <div>
                     <h1>Education</h1>
                     <button type="button" className='open' onClick={setEducation}>{educationOpen ? 'Submit' : 'Edit'}</button>
                 </div>
                 {educationOpen &&  
                 <>
-                    {educationValues.map((item) => <EducationForm key={item.id} item={item} onEdit={educationChange} />)}          
+                    {educationValues.map((item) => <MajorForm key={item.id} item={item} onEdit={educationChange} />)}          
                 </>}
-            </form>
+            </div>
+            <div className='form-work form' action="">
+                <div>
+                    <h1>Work Experience</h1>
+                    <button type="button" className='open' onClick={setWork}>{workOpen ? 'Submit' : 'Edit'}</button>
+                </div>
+                {workOpen &&  
+                <>
+                    {workValues.map((item) => <JobForm key={item.id} item={item} onEdit={workChange} />)}          
+                </>}
+            </div>
       </div>
       
     )
 }
 
-function EducationForm ({item, onEdit}) {
+function MajorForm ({item, onEdit}) {
     return (
-        <div>
+        <form>
+            <div>
+                <h2>{item.major}</h2>
+                <button className='open' onClick={(event) => onEdit(event, item.id, {isOpen: !item.isOpen})}>{item.isOpen ? 'Submit' : 'Edit'}</button>
+            </div>
+            {item.isOpen && 
+            <>
             <div className='field'>
                 <label htmlFor="major">Major</label>
                 <input type="text" id="major" data-id={item.id} value={item.major} onChange={(event) => onEdit(event, event.target.dataset.id, {major: event.target.value})} />
@@ -73,13 +89,46 @@ function EducationForm ({item, onEdit}) {
             </div>   
             <div className='field'>
                 <label htmlFor="startDate">Starting Date</label>
-                <input type="date" id="startDate" data-id={item.id} value={item.startDate} onChange={(event) => onEdit(event, event.target.dataset.id, {startDate: event.target.value})} />
+                <input type="month" id="startDate" data-id={item.id} value={item.startDate} onChange={(event) => onEdit(event, event.target.dataset.id, {startDate: event.target.value})} />
             </div> 
             <div className='field'>
-                <label htmlFor="endtDate">Ending Date</label>
-                <input type="date" id="endDate" data-id={item.id} value={item.endDate} onChange={(event) => onEdit(event, event.target.dataset.id, {endDate: event.target.value})} />
-            </div>         
-    </div>
+                <label htmlFor="endDate">Ending Date</label>
+                <input type="month" id="endDate" data-id={item.id} value={item.endDate} onChange={(event) => onEdit(event, event.target.dataset.id, {endDate: event.target.value})} />
+            </div>  
+        </>  
+            }     
+    </form>
+    )
+}
+
+function JobForm ({item, onEdit}) {
+    return (
+        <form>
+            <div>
+                <h2>{item.job}</h2>
+                <button className='open' onClick={(event) => onEdit(event, item.id, {isOpen: !item.isOpen})}>{item.isOpen ? 'Submit' : 'Edit'}</button>
+            </div>
+            {item.isOpen && 
+            <>
+            <div className='field'>
+                <label htmlFor="job">Job Position</label>
+                <input type="text" id="job" data-id={item.id} value={item.job} onChange={(event) => onEdit(event, event.target.dataset.id, {job: event.target.value})} />
+            </div>
+            <div className='field'>
+                <label htmlFor="company">Company</label>
+                <input type="text" id="company" data-id={item.id} value={item.company} onChange={(event) => onEdit(event, event.target.dataset.id, {company: event.target.value})} />
+            </div>   
+            <div className='field'>
+                <label htmlFor="startDate">Starting Date</label>
+                <input type="month" id="startDate" data-id={item.id} value={item.startDate} onChange={(event) => onEdit(event, event.target.dataset.id, {startDate: event.target.value})} />
+            </div> 
+            <div className='field'>
+                <label htmlFor="endDate">Ending Date</label>
+                <input type="month" id="endDate" data-id={item.id} value={item.endDate} onChange={(event) => onEdit(event, event.target.dataset.id, {endDate: event.target.value})} />
+            </div>  
+        </>  
+            }     
+    </form>
     )
 }
 

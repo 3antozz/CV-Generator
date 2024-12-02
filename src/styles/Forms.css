@@ -14,24 +14,19 @@ textarea {
     resize: none;
 }
 
-form {
+form, .form {
     border: 2px solid cyan;
     border-radius: 20px;
     padding: 1rem;
 }
 
-form > div:first-child {
+form > div:first-child, .form > div:first-child {
     display: flex;
 }
-form > div > h1 {
+form > div > h1, .form > div > h1, form > div > h2  {
     flex: 1;
 }
 
-form button[type="submit"] {
-    display: block;
-    width: 70%;
-    margin: auto;
-}
 
 
 input, textarea {
