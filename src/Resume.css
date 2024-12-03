@@ -1,9 +1,23 @@
-.resume {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    margin: auto;
-    width: 794px;
-    height: 1123px;
+@media (min-width: 700px) {
+    .resume {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        margin: auto;
+        width: 794px;
+        height: 1123px;
+    }
+}
+
+@media (max-width: 699px) {
+    .resume {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        width: 100%;
+    }
+
+    .left h2 {
+      font-size: 1.4rem;
+    }
 }
 
 h1,
@@ -13,10 +27,8 @@ h3 {
 }
 
 h4 {
-  font-size: 1.15rem;
+    font-size: 1.15rem;
 }
-
-
 
 .right h3 {
     font-size: 1.5rem;
@@ -32,22 +44,12 @@ h2 {
 }
 
 .right {
-  background-color: beige;
+    background-color: beige;
 }
-
 
 .left,
 .right {
-    padding: 2rem;
-}
-
-
-
-.container {
-    display: grid;
-    grid-template-columns: 1fr 794px;
-    gap: 3rem;
-    padding: 2rem 5rem;
+    padding: 2rem 2vw;
 }
 
 ul {
@@ -55,7 +57,7 @@ ul {
 }
 
 .left .about {
-  padding-top: 2rem;
+    padding-top: 2rem;
 }
 
 .title svg {
@@ -84,14 +86,14 @@ ul {
 }
 
 .right .section li {
-  padding: 0.6rem 0;
+    padding: 0.6rem 0;
 }
-
 
 .left .section li {
     padding: 0.4rem 0;
 }
 
-.education ul, .work ul {
-  padding: 0 1.3rem;
+.education ul,
+.work ul {
+    padding: 0 1.3rem;
 }

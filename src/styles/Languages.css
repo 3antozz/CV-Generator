@@ -6,8 +6,9 @@
 
 .languages li p {
     display: inline-block;
+    font-size: 1.3rem;
 }
 
 .languages ul {
-  padding: 0 1.7rem ;
+  padding: 0 1.6rem ;
 }

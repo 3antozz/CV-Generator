@@ -2,6 +2,7 @@ import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import "./Resume.css";
 import './styles/Forms.css';
+import './App.css';
 import Header from "./components/Header/Header";
 import About from "./components/About/About";
 import AboutForm from "./components/About/About-Form";
@@ -20,8 +21,8 @@ import LanguagesForm from "./components/Languages/Languages-Form";
 function App() {
   const [about, setAbout] = useState({
     isOpen: false,
-    fullName: 'Yacine Belahadji',
-    profession: 'FullStack Web Developer',
+    fullName: 'Yacine Antuzaa',
+    profession: 'Fullstack Web Developer',
     description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet ullam incidunt corrupti perspiciatis, nesciunt quod corporis quisquam quia natus voluptas, eum delectus modi, consequatur suscipit impedit molestias earum recusandae eligendi.'
   })
   const [contact, setContact] = useState({
@@ -97,7 +98,15 @@ function App() {
     {
       id: uuidv4(),
       name: 'Skill'
-    }
+    },
+    {
+      id: uuidv4(),
+      name: 'Skill'
+    },
+    {
+      id: uuidv4(),
+      name: 'Skill'
+    },
   ])
 
   const [languagesOpen, setLanguagesOpen] = useState(false)
