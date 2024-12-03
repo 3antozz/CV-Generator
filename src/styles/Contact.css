@@ -2,9 +2,10 @@
     display: flex;
     gap: 1rem;
     align-items: center;
+    padding: 0.2rem 0.4rem;
 }
 
-.contact svg {
-    width: 2rem;
+.contact div svg {
+    width: 1.7rem;
     fill: white;
 }

@@ -1,8 +1,13 @@
-.languages li {
-    display: flex;
-    gap: 1rem;
+.languages li h3 {
+  line-height: normal;
+  display: inline-block;
+  margin-right: 1rem;
 }
 
-.languages li h3 {
-    line-height: normal;
+.languages li p {
+    display: inline-block;
+}
+
+.languages ul {
+  padding: 0 1.7rem ;
 }

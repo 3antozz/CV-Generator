@@ -14,20 +14,43 @@ textarea {
     resize: none;
 }
 
-form, .form {
-    border: 2px solid cyan;
+.form {
+    box-shadow: 1px 1px 1px 1px #8080808a;
+    background-color: rgba(245, 245, 220, 0.53);
     border-radius: 20px;
     padding: 1rem;
+}
+form:not(.form) {
+    background-color: white;
+    margin-top: 1rem;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 1px 1px 1px 1px #8080808a;
 }
 
 form > div:first-child, .form > div:first-child {
     display: flex;
+    align-items: center;
 }
 form > div > h1, .form > div > h1, form > div > h2  {
     flex: 1;
 }
 
+.form svg {
+    width: 2rem;
+}
 
+.form button {
+    border: none;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    font-weight: 600;
+    align-self: center;
+    padding: 0.5rem;
+    background-color: white;
+    box-shadow: 2px 2px 2px 0px #8080808a;
+    margin-left: 1rem;
+}
 
 input, textarea {
     width: 50%;
@@ -36,14 +59,12 @@ input, textarea {
     border: 1px solid black;
 }
 
+.check {
+    fill: rgba(0, 128, 0, 0.6);
+}
+
 label {
     word-wrap: break-word;
     width: max(100px, 10vw);
     font-weight: bold;
-}
-
-.open, .add, .delete {
-    font-weight: 600;
-    align-self: center;
-    padding: 0.3rem 1.2rem;
 }

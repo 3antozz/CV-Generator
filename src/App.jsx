@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 import "./Resume.css";
-import './styles/Forms.css'
+import './styles/Forms.css';
+import Header from "./components/Header/Header";
 import About from "./components/About/About";
 import AboutForm from "./components/About/About-Form";
 import Picture from "./components/Picture";
@@ -19,8 +21,8 @@ function App() {
   const [about, setAbout] = useState({
     isOpen: false,
     fullName: 'Yacine Belahadji',
-    profession: 'King',
-    description: 'elkoko del koko del momo del popo'
+    profession: 'FullStack Web Developer',
+    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet ullam incidunt corrupti perspiciatis, nesciunt quod corporis quisquam quia natus voluptas, eum delectus modi, consequatur suscipit impedit molestias earum recusandae eligendi.'
   })
   const [contact, setContact] = useState({
     isOpen: false,
@@ -35,25 +37,17 @@ function App() {
   const [education, setEducation] = useState([
     {
       isOpen: false,
-      id: crypto.randomUUID(),
-      major: 'architecture',
-      institution: 'epau',
+      id: uuidv4(),
+      major: 'Enter Your Major',
+      institution: 'Name of Institution',
       startDate: '2001-05',
       endDate: '1999-12'
     },
     {
       isOpen: false,
-      id: crypto.randomUUID(),
-      major: 'architecture',
-      institution: 'epau',
-      startDate: '2001-05',
-      endDate: '1999-12'
-    },
-    {
-      isOpen: false,
-      id: crypto.randomUUID(),
-      major: 'web dev',
-      institution: 'epau',
+      id: uuidv4(),
+      major: 'Enter Your Major',
+      institution: 'Name of Institution',
       startDate: '2001-05',
       endDate: '1999-12'
     }
@@ -63,25 +57,28 @@ function App() {
   const [work, setWork] = useState([
     {
       isOpen: false,
-      id: crypto.randomUUID(),
-      company: 'google',
-      job: 'pdg',
+      id: uuidv4(),
+      company: 'Company Name',
+      job: 'Job Position',
+      description: 'job position description',
       startDate: '2001-05',
       endDate: '1999-12'
     },
     {
       isOpen: false,
-      id: crypto.randomUUID(),
-      company: 'google',
-      job: 'pdg',
+      id: uuidv4(),
+      company: 'Company Name',
+      job: 'Job Position',
+      description: 'job position description',
       startDate: '2001-05',
       endDate: '1999-12'
     },
     {
       isOpen: false,
-      id: crypto.randomUUID(),
-      company: 'google',
-      job: 'pdg',
+      id: uuidv4(),
+      company: 'Company Name',
+      job: 'Job Position',
+      description: 'job position description',
       startDate: '2001-05',
       endDate: '1999-12'
     }
@@ -90,15 +87,15 @@ function App() {
   const [skillsOpen, setSkillsOpen] = useState(false)
   const [skills, setSkills] = useState([
     {
-      id: crypto.randomUUID(),
+      id: uuidv4(),
       name: 'Skill'
     },
     {
-      id: crypto.randomUUID(),
+      id: uuidv4(),
       name: 'Skill'
     },
     {
-      id: crypto.randomUUID(),
+      id: uuidv4(),
       name: 'Skill'
     }
   ])
@@ -106,17 +103,17 @@ function App() {
   const [languagesOpen, setLanguagesOpen] = useState(false)
   const [languages, setLanguages] = useState([
     {
-      id: crypto.randomUUID(),
+      id: uuidv4(),
       name: 'French',
       level: 'Good'
     },
     {
-      id: crypto.randomUUID(),
+      id: uuidv4(),
       name: 'French',
       level: 'Good'
     },
     {
-      id: crypto.randomUUID(),
+      id: uuidv4(),
       name: 'French',
       level: 'Good'
     }
@@ -128,15 +125,16 @@ function App() {
   }
 
   function languagesButton () {
-    setLanguagesOpen(!skillsOpen);
+    setLanguagesOpen(!languagesOpen);
   }
 
   function addLanguagesObj(event) {
     event.preventDefault();
     const obj = {
       isOpen: false,
-      id: crypto.randomUUID(),
-      name: 'Language'
+      id: uuidv4(),
+      name: 'Language',
+      level: 'Native'
     }
     setLanguages((prev) => [...prev, obj])
   }
@@ -159,7 +157,7 @@ function App() {
     event.preventDefault();
     const obj = {
       isOpen: false,
-      id: crypto.randomUUID(),
+      id: uuidv4(),
       name: 'Skill'
     }
     setSkills((prev) => [...prev, obj])
@@ -185,11 +183,11 @@ function App() {
     event.preventDefault();
     const obj = {
       isOpen: false,
-      id: crypto.randomUUID(),
-      major: 'Major',
-      institution: '',
-      startDate: '2000',
-      endDate: '2001'
+      id: uuidv4(),
+      major: 'Enter Your Major',
+      institution: 'Name of Institution',
+      startDate: '2001-05',
+      endDate: '1999-12'
     }
     setEducation((prev) => [...prev, obj])
   }
@@ -203,11 +201,12 @@ function App() {
     event.preventDefault();
     const obj = {
       isOpen: false,
-      id: crypto.randomUUID(),
-      company: '',
-      job: 'Masterbaiter',
-      startDate: '2000',
-      endDate: '2001'
+      id: uuidv4(),
+      company: 'Company Name',
+      job: 'Job Position',
+      description: 'job position description',
+      startDate: '2001-05',
+      endDate: '1999-12'
     }
     setWork((prev) => [...prev, obj])
   }
@@ -254,6 +253,7 @@ function App() {
           <Languages values={languages} />
         </div>
         <div className="right">
+          <Header values={about}/>
           <About values={about}/>
           <Education values={education}/>
           <Work values={work} />
