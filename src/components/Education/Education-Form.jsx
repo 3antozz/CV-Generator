@@ -38,13 +38,15 @@ function MajorForm ({item, onEdit, onRemove}) {
                 <input type="month" id="startDate" value={item.startDate} onChange={(event) => onEdit(item.id, {startDate: event.target.value})} />
             </div> 
             <div className='field'>
-                <label htmlFor="endDate">Ending Date</label>
-                <input type="month" id="endDate" value={item.endDate} onChange={(event) => onEdit(item.id, {endDate: event.target.value, isPresent: false})} />
-                <div className="present">
-                    <input type="checkbox" id="present" checked={item.isPresent} onChange={() => onEdit(item.id, {isPresent: !item.isPresent, endDate: item.isPresent ? '2024' : 'Present'
-                    })} />
-                    <label htmlFor="present">Present</label>
+                <div className="present-label">
+                    <label htmlFor="endDate">Ending Date</label>
+                    <div className="present">
+                        <input type="checkbox" id="present" checked={item.isPresent} onChange={() => onEdit(item.id, {isPresent: !item.isPresent, endDate: item.isPresent ? '2024' : 'Present'
+                        })} />
+                        <label htmlFor="present">Present</label>
+                    </div>
                 </div>
+                <input type="month" id="endDate" value={item.endDate} onChange={(event) => onEdit(item.id, {endDate: event.target.value, isPresent: false})} />
             </div>  
         </>  
             }     

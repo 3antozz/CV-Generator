@@ -12,7 +12,10 @@ function Work ({values}) {
 }
 
 function convertDateToYear (date) {
-    return date === 'Present' ? date : new Date(date).getFullYear();
+    return date === 'Present' ? date : new Intl.DateTimeFormat('en-US', { 
+        month: 'short', 
+        year: 'numeric' 
+      }).format(new Date(date));
 }
 
 
