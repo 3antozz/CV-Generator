@@ -240,6 +240,7 @@ function App() {
   return (
     <div className="container">
       <div className="forms">
+        <h1 style={{textAlign:"center"}}>CV Generator</h1>
         <AboutForm aboutValues={about} aboutChange={aboutHandler} />
         <ContactForm contactValues={contact} contactChange={contactHandler} />
         <EducationForm educationValues={education} educationOpen={educationOpen} setEducation={educationButton} educationChange={educationHandler} addEducation={addEducationObj} removeEducation={deleteEducationObj}/>
