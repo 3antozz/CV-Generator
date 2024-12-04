@@ -12,7 +12,7 @@ function Education ({values}) {
 }
 
 function convertDateToYear (date) {
-    return new Date(date).getFullYear();
+    return date === 'Present' ? date : new Date(date).getFullYear();
 }
 
 

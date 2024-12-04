@@ -42,7 +42,8 @@ function App() {
       major: 'Enter Your Major',
       institution: 'Name of Institution',
       startDate: '2001-05',
-      endDate: '1999-12'
+      endDate: '1999-12',
+      isPresent: false
     },
     {
       isOpen: false,
@@ -50,7 +51,8 @@ function App() {
       major: 'Enter Your Major',
       institution: 'Name of Institution',
       startDate: '2001-05',
-      endDate: '1999-12'
+      endDate: '1999-12',
+      isPresent: false
     }
   ])
 
@@ -63,7 +65,8 @@ function App() {
       job: 'Job Position',
       description: 'job position description',
       startDate: '2001-05',
-      endDate: '1999-12'
+      endDate: '1999-12',
+      isPresent: false
     },
     {
       isOpen: false,
@@ -72,7 +75,8 @@ function App() {
       job: 'Job Position',
       description: 'job position description',
       startDate: '2001-05',
-      endDate: '1999-12'
+      endDate: '1999-12',
+      isPresent: false
     },
     {
       isOpen: false,
@@ -81,7 +85,8 @@ function App() {
       job: 'Job Position',
       description: 'job position description',
       startDate: '2001-05',
-      endDate: '1999-12'
+      endDate: '1999-12',
+      isPresent: false
     }
   ])
 
@@ -89,15 +94,15 @@ function App() {
   const [skills, setSkills] = useState([
     {
       id: uuidv4(),
-      name: 'Skill'
+      name: 'Ketchup'
     },
     {
       id: uuidv4(),
-      name: 'Skill'
+      name: 'Desing'
     },
     {
       id: uuidv4(),
-      name: 'Skill'
+      name: 'Studio'
     },
     {
       id: uuidv4(),
@@ -113,8 +118,8 @@ function App() {
   const [languages, setLanguages] = useState([
     {
       id: uuidv4(),
-      name: 'French',
-      level: 'Good'
+      name: 'Amazigh',
+      level: 'Terrible'
     },
     {
       id: uuidv4(),
@@ -123,13 +128,12 @@ function App() {
     },
     {
       id: uuidv4(),
-      name: 'French',
-      level: 'Good'
+      name: 'English',
+      level: 'Native'
     }
   ])
 
-  function languagesHandler (event, elementId, obj) {
-    event.preventDefault();
+  function languagesHandler (elementId, obj) {
     setLanguages((prev) => prev.map((item) => item.id === elementId ? {...item, ...obj} : item))
   }
 
@@ -137,8 +141,7 @@ function App() {
     setLanguagesOpen(!languagesOpen);
   }
 
-  function addLanguagesObj(event) {
-    event.preventDefault();
+  function addLanguagesObj() {
     const obj = {
       isOpen: false,
       id: uuidv4(),
@@ -148,13 +151,11 @@ function App() {
     setLanguages((prev) => [...prev, obj])
   }
 
-  function deleteLanguagesObj(event, elementId) {
-    event.preventDefault();
+  function deleteLanguagesObj(elementId) {
     setLanguages((prev) => prev.filter((element) => element.id !== elementId))
   }
 
-  function skillsHandler (event, elementId, obj) {
-    event.preventDefault();
+  function skillsHandler (elementId, obj) {
     setSkills((prev) => prev.map((item) => item.id === elementId ? {...item, ...obj} : item))
   }
 
@@ -162,8 +163,7 @@ function App() {
     setSkillsOpen(!skillsOpen);
   }
 
-  function addSkillsObj(event) {
-    event.preventDefault();
+  function addSkillsObj() {
     const obj = {
       isOpen: false,
       id: uuidv4(),
@@ -172,8 +172,7 @@ function App() {
     setSkills((prev) => [...prev, obj])
   }
 
-  function deleteSkillsObj(event, elementId) {
-    event.preventDefault();
+  function deleteSkillsObj(elementId) {
     setSkills((prev) => prev.filter((element) => element.id !== elementId))
   }
 
@@ -183,31 +182,28 @@ function App() {
     setEducationOpen(!educationOpen);
   }
 
-  function educationHandler (event, elementId, obj) {
-    event.preventDefault();
+  function educationHandler (elementId, obj) {
     setEducation((prev) => prev.map((item) => item.id === elementId ? {...item, ...obj} : item))
   }
 
-  function addEducationObj(event) {
-    event.preventDefault();
+  function addEducationObj() {
     const obj = {
       isOpen: false,
       id: uuidv4(),
       major: 'Enter Your Major',
       institution: 'Name of Institution',
       startDate: '2001-05',
-      endDate: '1999-12'
+      endDate: '1999-12',
+      isPresent: false
     }
     setEducation((prev) => [...prev, obj])
   }
 
-  function deleteEducationObj(event, elementId) {
-    event.preventDefault();
+  function deleteEducationObj(elementId) {
     setEducation((prev) => prev.filter((element) => element.id !== elementId))
   }
 
-  function addWorkObj(event) {
-    event.preventDefault();
+  function addWorkObj() {
     const obj = {
       isOpen: false,
       id: uuidv4(),
@@ -215,13 +211,13 @@ function App() {
       job: 'Job Position',
       description: 'job position description',
       startDate: '2001-05',
-      endDate: '1999-12'
+      endDate: '1999-12',
+      isPresent: false
     }
     setWork((prev) => [...prev, obj])
   }
 
-  function deleteWorkObj(event, elementId) {
-    event.preventDefault();
+  function deleteWorkObj(elementId) {
     setWork((prev) => prev.filter((element) => element.id !== elementId))
   }
 
@@ -229,19 +225,16 @@ function App() {
     setWorkOpen(!workOpen);
   }
 
-  function workHandler (event, elementId, obj) {
-    event.preventDefault();
+  function workHandler (elementId, obj) {
     setWork((prev) => prev.map((item) => item.id === elementId ? {...item, ...obj} : item))
   }
 
-  function contactHandler (event, obj) {
-    event.preventDefault();
+  function contactHandler (obj) {
     setContact((prev) => ({...prev, ...obj}));
   }
 
 
-  function aboutHandler (event, obj) {
-    event.preventDefault();
+  function aboutHandler (obj) {
     setAbout((prev) => ({...prev, ...obj}));
   }
   return (
